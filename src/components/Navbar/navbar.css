@@ -22,7 +22,7 @@
   font-weight: 600;
 }
 .nav-container .links a:hover {
-  color: brown;
+  color: rgba(147,107,249,255);
 }
 .nav-container .btns {
   display: flex;
@@ -39,9 +39,10 @@
   cursor: pointer;
   font-size: 16px;
   font-weight: 400;
+  font-family: "Poppins", sans-serif;
 }
 .nav-container .btns button:hover {
-  background-color: brown;
+  background-color: rgba(147,107,249,255);
   color: white;
 }
 @media (max-width: 768px) {
@@ -86,7 +87,7 @@
   }
   .nav-container .mobile .menu .Links a:hover,
   .nav-container .mobile .menu .Btns button:hover {
-    color: brown;
+    color: rgba(147,107,249,255);
   }
   .nav-container .mobile .menu .Btns button {
     padding: 5px;
@@ -99,7 +100,7 @@
     font-weight: 500;
   }
   .nav-container .mobile .menu .Btns button:hover {
-    background-color: brown;
+    background-color: rgba(147,107,249,255);
     color: white;
   }
 }
