@@ -6,9 +6,11 @@
   justify-content: space-between;
   align-items: center;
 }
-.nav-container h1 {
+.nav-container h1 a {
   font-size: 40px;
   font-weight: 700;
+  color: white;
+  cursor: pointer;
 }
 .nav-container .links {
   display: flex;
@@ -46,6 +48,11 @@
   color: white;
 }
 @media (max-width: 768px) {
+  #close {
+    position: absolute;
+    top: 45px;
+    right: 45px;
+  }
   .nav-container .links,
   .nav-container .btns {
     display: none;
@@ -62,45 +69,54 @@
     font-size: 18px;
   }
   .nav-container .mobile .menu {
+    width: 100%;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    padding: 15px;
-    width: auto;
+    align-items: center;
+    padding: 50px;
+    flex-direction: column; 
     position: absolute;
-    right: 25px;
-    top: 70px;
+    background-color: #141414;
+    top: 0;
+    left: 0;
+    z-index: 9999;
   }
-  .nav-container .mobile .menu .Links,
-  .nav-container .mobile .menu .Btns {
+  .nav-container .mobile .menu .Links{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     width: 100%;
   }
-  .nav-container .mobile .menu .Links a {
-    color: white;
-    font-size: 20px;
-    font-weight: 600;
-  }
-  .nav-container .mobile .menu .Links a:hover,
-  .nav-container .mobile .menu .Btns button:hover {
-    color: rgba(147,107,249,255);
+  .nav-container .mobile .menu .Btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
   }
   .nav-container .mobile .menu .Btns button {
-    padding: 5px;
+    height: 50px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
     justify-content: space-around;
     align-items: center;
     border-radius: 6px;
     border: none;
     font-size: 14px;
     font-weight: 500;
-  }
-  .nav-container .mobile .menu .Btns button:hover {
+    font-family: "poppins";
     background-color: rgba(147,107,249,255);
     color: white;
+  }
+  .nav-container .mobile .menu .Links a {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
   }
 }

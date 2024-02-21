@@ -15,7 +15,9 @@ const Navbar = () => {
     <nav>
       <div className="container">
         <div className="nav-container">
-          <h1>SwiftCart</h1>
+          <h1>
+            <Link to={"/"}>SwiftCart</Link>
+          </h1>
           <div className="links">
             <Link to={"/"}>Home</Link>
             <Link to={"/products"}>Products</Link>
@@ -41,18 +43,23 @@ const Navbar = () => {
             </button>
             {isOpen && (
               <div className="menu scale-up-tr">
+                <FaTimes onClick={toggleMenu} id="close" />
                 <div className="Links">
-                  <Link to={"/"}>Home</Link>
-                  <Link to={"/products"}>Products</Link>
-                  <Link to={"/about"}>About</Link>
+                  <Link to={"/"} onClick={toggleMenu}>
+                    Home
+                  </Link>
+                  <Link to={"/products"} onClick={toggleMenu}>
+                    Products
+                  </Link>
+                  <Link to={"/about"} onClick={toggleMenu}>
+                    About
+                  </Link>
                 </div>
                 <div className="Btns">
                   <button>
-                    
                     <MdOutlineLogout /> Register
                   </button>
                   <button>
-                    
                     <FaCartPlus />
                     Cart (0)
                   </button>
