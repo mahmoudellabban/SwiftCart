@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
 import "./products.css";
 
 const Products = () => {
+  // fetching data and filter them
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("All");
-
+  // search
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  //fetch
   useEffect(() => {
     const fetchedProducts = async () => {
       try {
@@ -27,7 +32,7 @@ const Products = () => {
     };
     fetchedProducts();
   }, []);
-
+  //filter
   const getCategoryName = (category) => {
     if (category === "naya saman") {
       return "Furniture";
@@ -37,14 +42,17 @@ const Products = () => {
       return category;
     }
   };
-
+  //filter
   useEffect(() => {
     if (selectedCategory === "All") {
-      setFilteredProducts(products.slice(0, 46));
+      setFilteredProducts(products.slice(0, 48));
     } else {
-      const filtered = products.slice(0,46).filter(
-        (product) => getCategoryName(product.category.name) === selectedCategory
-      );
+      const filtered = products
+        .slice(0, 47)
+        .filter(
+          (product) =>
+            getCategoryName(product.category.name) === selectedCategory
+        );
       setFilteredProducts(filtered);
     }
   }, [selectedCategory, products]);
@@ -52,11 +60,23 @@ const Products = () => {
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
   };
+  //search
+  useEffect(() => {
+    const filtered = filteredProducts.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(filtered);
+  }, [searchTerm, filteredProducts]);
 
   return (
     <section className="products-container ">
       <div className="search">
-        <input type="search" placeholder="Search..." />
+        <input
+          type="search"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
         <IoSearch size={25} className="icon" />
       </div>
       <div className="body">
@@ -66,7 +86,7 @@ const Products = () => {
               <p>Loading...</p>
             ) : (
               <div className="card">
-                {filteredProducts.map((product) => (
+                {searchResults.map((product) => (
                   <div key={product.id} className="single">
                     <div className="img">
                       <img
@@ -76,7 +96,13 @@ const Products = () => {
                       />
                     </div>
                     <h3>{product.title}</h3>
-                    <p>description</p>
+                    <p id="desc">{product.description.split(' ').slice(0, 8).join(' ')}...
+                    <span>
+                      <Link to={`products/${product.id}`}>
+                      Read More
+                      </Link>
+                    </span>
+                    </p>
                     <p className="cate">
                       {getCategoryName(product.category.name)}
                     </p>
@@ -85,7 +111,11 @@ const Products = () => {
                         <span>price</span> $ {product.price}
                       </p>
                       <div className="btn">
-                        <button>add to cart</button>
+                        <button>
+                          <Link to={`products/${product.id}`}>
+                            add to cart
+                          </Link>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -96,10 +126,7 @@ const Products = () => {
         </div>
         <div className="categories">
           <h4>
-            <BiCategory
-              size={25}
-              style={{ color: "rgba(147,107,249,255)" }}
-            />
+            <BiCategory size={25} style={{ color: "rgba(147,107,249,255)" }} />
             Categories :
           </h4>
           <p

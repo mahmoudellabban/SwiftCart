@@ -76,6 +76,17 @@
     font-size: 18px;
     margin-bottom: 10px;
 }
+#desc {
+    color: #9e9a9a;
+}
+#desc span a {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#desc span a:hover {
+    color: rgba(147,107,249,255);
+}
 .active {
     color: rgba(147,107,249,255);
 }
@@ -118,6 +129,9 @@
     font-family: "Poppins", sans-serif;
     font-size: 16px;
     cursor: pointer;
+}
+.data .card .cart button a {
+    color: white;
 }
 .products-container .body .categories {
     width: 200px;
