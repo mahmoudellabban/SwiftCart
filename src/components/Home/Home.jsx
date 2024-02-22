@@ -18,7 +18,11 @@ const Home = () => {
             Start Shopping
             </Link>
           </button>
-          <button>Learn More</button>
+          <button>
+            <Link to={"/about"}>
+              Learn More
+            </Link>
+          </button>
         </div>
       </div>
     </section>
