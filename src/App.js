@@ -6,6 +6,7 @@ import Home from './components/Home/Home'
 import Products from "./components/Products/Products"
 import Product from './components/Product/Product'
 const App = () => {
+  
   return (
     <BrowserRouter>
       <Navbar />

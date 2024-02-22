@@ -45,10 +45,10 @@ const Products = () => {
   //filter
   useEffect(() => {
     if (selectedCategory === "All") {
-      setFilteredProducts(products.slice(0, 48));
+      setFilteredProducts(products.slice(1, 46));
     } else {
       const filtered = products
-        .slice(0, 47)
+        .slice(1, 47)
         .filter(
           (product) =>
             getCategoryName(product.category.name) === selectedCategory
@@ -103,7 +103,7 @@ const Products = () => {
                 </p>
                 <div className="cart">
                   <p>
-                    <span>price</span> $ {product.price}
+                    <span>price</span> ${product.price}
                   </p>
                   <div className="btn">
                     <button id="cart-button">

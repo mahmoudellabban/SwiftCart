@@ -46,7 +46,7 @@ const Product = () => {
           <p id="cate">{getCategoryName(product.category.name)}</p>
           <div className="cart">
             <p>
-              <span>price:</span> $ {product.price}
+              <span>price:</span> ${product.price}
             </p>
             <div className="btn">
               <button id="cart-button">Add to Cart</button>
