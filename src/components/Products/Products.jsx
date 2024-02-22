@@ -81,48 +81,41 @@ const Products = () => {
       </div>
       <div className="body">
         <div className="products">
-          <div className="data">
-            {isLoading ? (
-              <p>Loading...</p>
-            ) : (
-              <div className="card">
-                {searchResults.map((product) => (
-                  <div key={product.id} className="single">
-                    <div className="img">
-                      <img
-                        src={product.images}
-                        alt={product.title}
-                        loading="lazy"
-                      />
-                    </div>
-                    <h3>{product.title}</h3>
-                    <p id="desc">{product.description.split(' ').slice(0, 8).join(' ')}...
-                    <span>
-                      <Link to={`products/${product.id}`}>
-                      Read More
-                      </Link>
-                    </span>
-                    </p>
-                    <p className="cate">
-                      {getCategoryName(product.category.name)}
-                    </p>
-                    <div className="cart">
-                      <p>
-                        <span>price</span> $ {product.price}
-                      </p>
-                      <div className="btn">
-                        <button>
-                          <Link to={`products/${product.id}`}>
-                            add to cart
-                          </Link>
-                        </button>
-                      </div>
-                    </div>
+        <div className="data">
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <div className="card">
+            {searchResults.map((product) => (
+              <div key={product.id} className="single">
+                <div className="img">
+                  <img src={product.images} alt={product.title} loading="lazy" />
+                </div>
+                <h3>{product.title}</h3>
+                <p id="desc">{product.description.split(' ').slice(0, 8).join(' ')}...
+                <span>
+                  <Link to={`/products/${product.id}`}>
+                    read more
+                  </Link>
+                </span></p>
+                <p id="cate">{getCategoryName(product.category.name)}
+                  
+                </p>
+                <div className="cart">
+                  <p>
+                    <span>price</span> $ {product.price}
+                  </p>
+                  <div className="btn">
+                    <button id="cart-button">
+                      <Link to={`/products/${product.id}`}>add to cart</Link>
+                    </button>
                   </div>
-                ))}
+                </div>
               </div>
-            )}
+            ))}
           </div>
+        )}
+      </div>
         </div>
         <div className="categories">
           <h4>

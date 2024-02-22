@@ -83,6 +83,7 @@
     color: white;
     text-decoration: underline;
     cursor: pointer;
+    text-transform: capitalize;
 }
 #desc span a:hover {
     color: rgba(147,107,249,255);
@@ -90,16 +91,20 @@
 .active {
     color: rgba(147,107,249,255);
 }
-.card .cate {
+#cate {
     background-color: #232323;
     width: fit-content;
-    margin: 10px;
+    margin: 20px;
     padding: 8px;
     border-radius: 30px;
     border: 1px solid #676666;
     font-size: 13px;
     cursor: pointer;
     text-transform: capitalize;
+}
+#cate:hover {
+    background-color: rgba(147,107,249,255);
+    color: white;
 }
 .products-container .body .products .data .card .cart {
     display: flex;
@@ -118,7 +123,7 @@
     color: #676666;
     
 }
-.products-container .body .products .data .card .cart button {
+#cart-button {
     width: 130px;
     height: 35px;
     text-transform: capitalize ;
