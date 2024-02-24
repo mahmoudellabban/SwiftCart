@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
@@ -24,7 +26,7 @@ const Products = () => {
         // Slice the first 46 products
         const first46Products = data.slice(0, 46);
         setProducts(data);
-        setFilteredProducts(first46Products);
+        setFilteredProducts(data);
         setIsLoading(false);
       } catch (error) {
         console.log("error fetching data", error);
@@ -45,7 +47,7 @@ const Products = () => {
   //filter
   useEffect(() => {
     if (selectedCategory === "All") {
-      setFilteredProducts(products.slice(1, 46));
+      setFilteredProducts(products);
     } else {
       const filtered = products
         .slice(1, 47)
@@ -83,7 +85,9 @@ const Products = () => {
         <div className="products">
         <div className="data">
         {isLoading ? (
-          <p>Loading...</p>
+          <>
+            loading...
+          </>
         ) : (
           <div className="card">
             {searchResults.map((product) => (

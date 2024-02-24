@@ -1,0 +1,36 @@
+.info {
+    font-size: 18px;
+}
+.info .first {
+    padding: 15px;
+    border: 1px solid #3b3b3b;
+    border-radius: 10px;
+}
+.info .first span {
+    color: rgba(147,107,249,255);
+    cursor: pointer;
+    font-weight: 700;
+}
+.info .second {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    border: 1px solid #3b3b3b;
+    border-radius: 10px;
+    padding: 15px;
+}
+.info .second h2 {
+    color: rgba(147,107,249,255);
+    text-transform: capitalize;
+    font-size: 24px;
+    font-weight: 500;
+}
+.info .second p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.info .second p:hover {
+    color: rgba(147,107,249,255);
+} 
