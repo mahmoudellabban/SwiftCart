@@ -86,7 +86,13 @@ const Products = () => {
         <div className="products">
           <div className="data">
             {isLoading ? (
-              <>loading...</>
+              <>
+                <div className="card">
+                <Skeleton height={350} baseColor="#4343431b" highlightColor=" #2014141b"/>
+                <Skeleton height={350} baseColor="#4343431b" highlightColor=" #2014141b"/>
+                <Skeleton height={350} baseColor="#4d47471b" highlightColor=" #2014141b"/>
+                </div>
+              </>
             ) : (
               <div className="card">
                 {searchResults.map((product) => (

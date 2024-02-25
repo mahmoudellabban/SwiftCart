@@ -24,14 +24,14 @@ const Navbar = () => {
             <Link to={"/about"}>About</Link>
           </div>
           <div className="btns">
-            <button>
+            <Link to={"auth"}>
               <MdOutlineLogout />
               Register
-            </button>
-            <button>
+            </Link>
+            <Link to={"cart"}>
               <FaCartPlus />
               Cart (0)
-            </button>
+            </Link>
           </div>
           <div className="mobile">
             <button className="toggle-button" onClick={toggleMenu}>
@@ -56,13 +56,14 @@ const Navbar = () => {
                   </Link>
                 </div>
                 <div className="Btns">
-                  <button>
-                    <MdOutlineLogout /> Register
-                  </button>
-                  <button>
+                  <Link to={"auth"}>
+                    <MdOutlineLogout />
+                    Register
+                  </Link>
+                  <Link to={"cart"}>
                     <FaCartPlus />
                     Cart (0)
-                  </button>
+                  </Link>
                 </div>
               </div>
             )}

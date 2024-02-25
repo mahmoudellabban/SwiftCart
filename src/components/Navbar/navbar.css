@@ -30,7 +30,7 @@
   display: flex;
   gap: 15px;
 }
-.nav-container .btns button {
+.nav-container .btns a  {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,8 +42,10 @@
   font-size: 16px;
   font-weight: 400;
   font-family: "Poppins", sans-serif;
+  color: black;
+  background-color: rgb(225, 221, 221);
 }
-.nav-container .btns button:hover {
+.nav-container .btns a:hover {
   background-color: rgba(147,107,249,255);
   color: white;
 }
@@ -96,7 +98,7 @@
     justify-content: space-around;
     width: 100%;
   }
-  .nav-container .mobile .menu .Btns button {
+  .nav-container .mobile .menu .Btns a {
     height: 50px;
     display: flex;
     justify-content: center;
