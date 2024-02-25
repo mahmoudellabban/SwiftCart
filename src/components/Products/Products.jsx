@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
@@ -24,9 +24,9 @@ const Products = () => {
         );
         const data = await response.json();
         // Slice the first 46 products
-        const first46Products = data.slice(0, 46);
-        setProducts(data);
-        setFilteredProducts(data);
+        const first46Products = data.slice(1, 51);
+        setProducts(first46Products);
+        setFilteredProducts(first46Products);
         setIsLoading(false);
       } catch (error) {
         console.log("error fetching data", error);
@@ -47,10 +47,10 @@ const Products = () => {
   //filter
   useEffect(() => {
     if (selectedCategory === "All") {
-      setFilteredProducts(products);
+      setFilteredProducts(products.slice(5, 51));
     } else {
       const filtered = products
-        .slice(1, 47)
+        .slice(5, 90)
         .filter(
           (product) =>
             getCategoryName(product.category.name) === selectedCategory
@@ -64,12 +64,13 @@ const Products = () => {
   };
   //search
   useEffect(() => {
-    const filtered = filteredProducts.filter((product) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const filtered = filteredProducts
+      .filter((product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .filter((product) => product.images); // Filter out products with missing or empty images
     setSearchResults(filtered);
   }, [searchTerm, filteredProducts]);
-
   return (
     <section className="products-container ">
       <div className="search">
@@ -83,43 +84,45 @@ const Products = () => {
       </div>
       <div className="body">
         <div className="products">
-        <div className="data">
-        {isLoading ? (
-          <>
-            loading...
-          </>
-        ) : (
-          <div className="card">
-            {searchResults.map((product) => (
-              <div key={product.id} className="single">
-                <div className="img">
-                  <img src={product.images} alt={product.title} loading="lazy" />
-                </div>
-                <h3>{product.title}</h3>
-                <p id="desc">{product.description.split(' ').slice(0, 8).join(' ')}...
-                <span>
-                  <Link to={`/products/${product.id}`}>
-                    read more
-                  </Link>
-                </span></p>
-                <p id="cate">{getCategoryName(product.category.name)}
-                  
-                </p>
-                <div className="cart">
-                  <p>
-                    <span>price</span> ${product.price}
-                  </p>
-                  <div className="btn">
-                    <button id="cart-button">
-                      <Link to={`/products/${product.id}`}>add to cart</Link>
-                    </button>
+          <div className="data">
+            {isLoading ? (
+              <>loading...</>
+            ) : (
+              <div className="card">
+                {searchResults.map((product) => (
+                  <div key={product.id} className="single">
+                    <div className="img">
+                      <img
+                        src={product.images}
+                        alt={product.title}
+                        loading="lazy"
+                      />
+                    </div>
+                    <h3>{product.title}</h3>
+                    <p id="desc">
+                      {product.description.split(" ").slice(0, 8).join(" ")}...
+                      <span>
+                        <Link to={`/products/${product.id}`}>read more</Link>
+                      </span>
+                    </p>
+                    <p id="cate">{getCategoryName(product.category.name)}</p>
+                    <div className="cart">
+                      <p>
+                        <span>price</span> ${product.price}
+                      </p>
+                      <div className="btn">
+                        <button id="cart-button">
+                          <Link to={`/products/${product.id}`}>
+                            add to cart
+                          </Link>
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
-        )}
-      </div>
         </div>
         <div className="categories">
           <h4>
@@ -133,10 +136,10 @@ const Products = () => {
             All
           </p>
           <p
-            className={selectedCategory === "Clothes" ? "active" : ""}
-            onClick={() => handleCategorySelect("Clothes")}
+            className={selectedCategory === "Electronics" ? "active" : ""}
+            onClick={() => handleCategorySelect("Electronics")}
           >
-            Clothes
+            Electronics
           </p>
           <p
             className={selectedCategory === "Furniture" ? "active" : ""}
@@ -145,10 +148,10 @@ const Products = () => {
             Furniture
           </p>
           <p
-            className={selectedCategory === "Electronics" ? "active" : ""}
-            onClick={() => handleCategorySelect("Electronics")}
+            className={selectedCategory === "Clothes" ? "active" : ""}
+            onClick={() => handleCategorySelect("Clothes")}
           >
-            Electronics
+            Clothes
           </p>
           <p
             className={selectedCategory === "Shoes" ? "active" : ""}

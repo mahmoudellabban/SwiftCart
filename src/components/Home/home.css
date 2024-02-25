@@ -52,7 +52,7 @@
 .home-container .buttons button:last-of-type {
     --tw-bg-opacity: 1;
     background-color: rgb(38 38 38 / var(--tw-bg-opacity));
-}
+}  
 @media (max-width: 768px) {
     .home-container {
         margin: 15px auto;
