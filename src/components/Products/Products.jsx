@@ -88,9 +88,9 @@ const Products = () => {
             {isLoading ? (
               <>
                 <div className="card">
-                <Skeleton height={350} baseColor="#4343431b" highlightColor=" #2014141b"/>
-                <Skeleton height={350} baseColor="#4343431b" highlightColor=" #2014141b"/>
-                <Skeleton height={350} baseColor="#4d47471b" highlightColor=" #2014141b"/>
+                <Skeleton height={450} baseColor="#4343431b" highlightColor=" #2014141b"/>
+                <Skeleton height={450} baseColor="#4343431b" highlightColor=" #2014141b"/>
+                <Skeleton height={450} baseColor="#4d47471b" highlightColor=" #2014141b"/>
                 </div>
               </>
             ) : (

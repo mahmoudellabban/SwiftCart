@@ -30,7 +30,7 @@
 .product-card .details .cart p {
     font-size: 22px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .product-card {
         display: flex;
         align-items: center;
@@ -42,11 +42,17 @@
     }
     .product-card .details .cart {
         gap: 0;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 10%;
     }
     .product-card .details .cart p {
         display: flex;
         flex-direction: column ;
         font-size: 20px;
+    }
+}
+@media (max-width: 350px) {
+    .product-card .details .cart p {
+        font-size: 15px;
     }
 }

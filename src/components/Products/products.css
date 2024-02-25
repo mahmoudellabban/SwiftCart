@@ -162,7 +162,7 @@
 .products-container .body .categories p:hover {
     color: rgba(147,107,249,255);
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .products-container {
         padding: 2rem;
     }
