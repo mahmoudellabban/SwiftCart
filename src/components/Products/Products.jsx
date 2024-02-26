@@ -7,99 +7,78 @@ import { BiCategory } from "react-icons/bi";
 import "./products.css";
 
 const Products = () => {
-  // fetching data and filter them
+  //fetching data
   const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  // search
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  //fetch
+  const [loading, setLoading] = useState(true);
+  //search and category filter
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("All");
   useEffect(() => {
-    const fetchedProducts = async () => {
+    const fetchedData = async () => {
       try {
-        const response = await fetch(
-          "https://api.escuelajs.co/api/v1/products"
-        );
+        const response = await fetch("https://fakestoreapi.com/products");
         const data = await response.json();
-        // Slice the first 46 products
-        const first46Products = data.slice(1, 51);
-        setProducts(first46Products);
-        setFilteredProducts(first46Products);
-        setIsLoading(false);
+        setProducts(data);
+        setLoading(false);
       } catch (error) {
-        console.log("error fetching data", error);
+        console.log("error fethcing data", error);
       }
     };
-    fetchedProducts();
+    fetchedData();
   }, []);
-  //filter
-  const getCategoryName = (category) => {
-    if (category === "naya saman") {
-      return "Furniture";
-    } else if (category === "Miscellaneous") {
-      return "others";
-    } else {
-      return category;
-    }
-  };
-  //filter
-  useEffect(() => {
-    if (selectedCategory === "All") {
-      setFilteredProducts(products.slice(5, 51));
-    } else {
-      const filtered = products
-        .slice(5, 90)
-        .filter(
-          (product) =>
-            getCategoryName(product.category.name) === selectedCategory
-        );
-      setFilteredProducts(filtered);
-    }
-  }, [selectedCategory, products]);
-
+  // Filtered products based on search term and category
+  const filteredProducts = products.filter((product) => {
+    const categoryMatch =
+      category === "All" || product.category === category;
+    const titleMatch = product.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
+    return categoryMatch && titleMatch;
+  });
   const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
+    setCategory(category);
   };
-  //search
-  useEffect(() => {
-    const filtered = filteredProducts
-      .filter((product) =>
-        product.title.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-      .filter((product) => product.images); // Filter out products with missing or empty images
-    setSearchResults(filtered);
-  }, [searchTerm, filteredProducts]);
   return (
     <section className="products-container ">
       <div className="search">
         <input
           type="search"
           placeholder="Search..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
         <IoSearch size={25} className="icon" />
       </div>
       <div className="body">
         <div className="products">
           <div className="data">
-            {isLoading ? (
+            {loading ? (
               <>
                 <div className="card">
-                <Skeleton height={450} baseColor="#4343431b" highlightColor=" #2014141b"/>
-                <Skeleton height={450} baseColor="#4343431b" highlightColor=" #2014141b"/>
-                <Skeleton height={450} baseColor="#4d47471b" highlightColor=" #2014141b"/>
+                  <Skeleton
+                    height={450}
+                    baseColor="#4343431b"
+                    highlightColor=" #2014141b"
+                  />
+                  <Skeleton
+                    height={450}
+                    baseColor="#4343431b"
+                    highlightColor=" #2014141b"
+                  />
+                  <Skeleton
+                    height={450}
+                    baseColor="#4d47471b"
+                    highlightColor=" #2014141b"
+                  />
                 </div>
               </>
             ) : (
               <div className="card">
-                {searchResults.map((product) => (
+                {filteredProducts.map((product) => (
                   <div key={product.id} className="single">
                     <div className="img">
                       <img
-                        src={product.images}
+                        src={product.image}
                         alt={product.title}
                         loading="lazy"
                       />
@@ -111,7 +90,7 @@ const Products = () => {
                         <Link to={`/products/${product.id}`}>read more</Link>
                       </span>
                     </p>
-                    <p id="cate">{getCategoryName(product.category.name)}</p>
+                    <p id="cate">{product.category}</p>
                     <div className="cart">
                       <p>
                         <span>price</span> ${product.price}
@@ -136,40 +115,34 @@ const Products = () => {
             Categories :
           </h4>
           <p
-            className={selectedCategory === "All" ? "active" : ""}
+            className={category === "All" ? "active" : ""}
             onClick={() => handleCategorySelect("All")}
           >
             All
           </p>
           <p
-            className={selectedCategory === "Electronics" ? "active" : ""}
-            onClick={() => handleCategorySelect("Electronics")}
+            className={category === "men's clothing" ? "active" : ""}
+            onClick={() => handleCategorySelect("men's clothing")}
+          >
+            Men's clothing
+          </p>
+          <p
+            className={category === "women's clothing" ? "active" : ""}
+            onClick={() => handleCategorySelect("women's clothing")}
+          >
+            Women's clothing
+          </p>
+          <p
+            className={category === "electronics" ? "active" : ""}
+            onClick={() => handleCategorySelect("electronics")}
           >
             Electronics
           </p>
           <p
-            className={selectedCategory === "Furniture" ? "active" : ""}
-            onClick={() => handleCategorySelect("Furniture")}
+            className={category === "jewelery" ? "active" : ""}
+            onClick={() => handleCategorySelect("jewelery")}
           >
-            Furniture
-          </p>
-          <p
-            className={selectedCategory === "Clothes" ? "active" : ""}
-            onClick={() => handleCategorySelect("Clothes")}
-          >
-            Clothes
-          </p>
-          <p
-            className={selectedCategory === "Shoes" ? "active" : ""}
-            onClick={() => handleCategorySelect("Shoes")}
-          >
-            Shoes
-          </p>
-          <p
-            className={selectedCategory === "others" ? "active" : ""}
-            onClick={() => handleCategorySelect("others")}
-          >
-            others
+            Jewelery
           </p>
         </div>
       </div>

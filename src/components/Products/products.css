@@ -63,14 +63,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 320px;
+    height: 280px;
     margin-bottom: 10px;
 }
 .products-container .body .products .data .card img {
-    width: 100%;
-    height: 100%;
     border-radius: 10px;
+    height: 260px;
+    width: 250px;
 }
 .products-container .body .products .data .card h3 {
     font-weight: 500;
@@ -188,3 +187,6 @@
         grid-template-columns: repeat(1, 1fr);
     }
 }
+/* 
+
+*/
