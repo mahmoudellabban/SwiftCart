@@ -40,9 +40,6 @@ const About = () => {
             React Router Dom <FaLongArrowAltRight /> Routing
           </p>
           <p>
-            React Spring <FaLongArrowAltRight /> Animation
-          </p>
-          <p>
             React Loading Skeleton <FaLongArrowAltRight /> Loading
           </p>
           <p>
