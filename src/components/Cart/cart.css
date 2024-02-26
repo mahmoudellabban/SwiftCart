@@ -1,0 +1,120 @@
+.order {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10%;
+    width: 100%;
+    margin-bottom: 40px;
+    border: 1px solid #676666;
+    border-radius: 35px;
+    padding: 15px;
+}
+.order img {
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+}
+.order .details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
+}
+.order .details .buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    align-items: center;
+}
+.order .details .buttons button {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    --tw-bg-opacity: 1;
+    background-color: rgb(112 59 247 / var(--tw-bg-opacity));
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+}
+.order p,
+.total p {
+    font-size: 22px;
+    font-weight: 500;
+}
+.total {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+}
+.total button {
+    width: 130px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    --tw-bg-opacity: 1;
+    background-color: rgb(112 59 247 / var(--tw-bg-opacity));
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+}
+@media (max-width: 768px) {
+    .order {
+        flex-direction: column;
+        width: 100%;
+    }
+    .order img {
+        width: 120px;
+        height: 120px;
+    }
+    .order .details {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .order .details .buttons {
+        gap: 10px;
+    }
+    .order .details .buttons button {
+        width: 100px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .order h3 {
+        font-size: 16px;
+    }
+    .order p,
+    .total p {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .total {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+    }
+    .total button {
+        width: 100px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 400;
+    }
+}

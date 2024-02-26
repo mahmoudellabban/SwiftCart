@@ -83,9 +83,9 @@ const Products = () => {
                         loading="lazy"
                       />
                     </div>
-                    <h3>{product.title}</h3>
+                    <h3>{product.title.split(" ").slice(0, 3).join(" ")}</h3>
                     <p id="desc">
-                      {product.description.split(" ").slice(0, 8).join(" ")}...
+                      {product.description.split(" ").slice(0,3).join(" ")}...
                       <span>
                         <Link to={`/products/${product.id}`}>read more</Link>
                       </span>
@@ -96,9 +96,9 @@ const Products = () => {
                         <span>price</span> ${product.price}
                       </p>
                       <div className="btn">
-                        <button id="cart-button">
+                        <button id="cart-button" >
                           <Link to={`/products/${product.id}`}>
-                            add to cart
+                            buy now
                           </Link>
                         </button>
                       </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import { MdOutlineLogout } from "react-icons/md";
 import { FaCartPlus } from "react-icons/fa";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -11,6 +12,9 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const cartItems = useSelector((state) => state.cart.cartItems);
+
   return (
     <nav>
       <div className="container">
@@ -24,13 +28,13 @@ const Navbar = () => {
             <Link to={"/about"}>About</Link>
           </div>
           <div className="btns">
-            <Link to={"auth"}>
+            <Link to={"/auth"}>
               <MdOutlineLogout />
               Register
             </Link>
-            <Link to={"cart"}>
+            <Link to={"/cart"}>
               <FaCartPlus />
-              Cart (0)
+              Cart ({cartItems.length})
             </Link>
           </div>
           <div className="mobile">
@@ -60,9 +64,9 @@ const Navbar = () => {
                     <MdOutlineLogout />
                     Register
                   </Link>
-                  <Link to={"cart"}>
+                  <Link to={"cart"}  onClick={toggleMenu}>
                     <FaCartPlus />
-                    Cart (0)
+                    Cart ({cartItems.length})
                   </Link>
                 </div>
               </div>

@@ -6,6 +6,7 @@ import Home from "./components/Home/Home";
 import Products from "./components/Products/Products";
 import Product from "./components/Product/Product";
 import About from "./components/About/About";
+import Cart from "./components/Cart/Cart"
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="products" element={<Products />} />
         <Route path="products/:id" element={<Product />} />
         <Route path="about" element={<About />} />
+        <Route path="cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );

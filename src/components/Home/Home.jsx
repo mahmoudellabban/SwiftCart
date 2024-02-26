@@ -8,24 +8,24 @@ const Home = () => {
   const titleAnimation = useSpring({
     opacity: 1,
     from: { opacity: 0 },
-    delay: 500,
+    delay: 300,
   });
 
   const textAnimation = useSpring({
     opacity: 1,
     from: { opacity: 0 },
-    delay: 1000,
+    delay: 600,
   });
 
   const buttonAnimation = useSpring({
     opacity: 1,
     from: { opacity: 0 },
-    delay: 1500,
+    delay: 900,
   });
   const secondButtonAnimation = useSpring({
     opacity: 1,
     from: { opacity: 0 },
-    delay: 1900,
+    delay: 1200,
   });
 
   return (

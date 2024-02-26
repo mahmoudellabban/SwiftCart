@@ -49,9 +49,6 @@ const About = () => {
             React Icons <FaLongArrowAltRight /> Icons
           </p>
           <p>
-            Clerk <FaLongArrowAltRight /> Authentication
-          </p>
-          <p>
             CSS <FaLongArrowAltRight /> Styling
           </p>
           <p>
