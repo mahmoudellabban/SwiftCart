@@ -1,15 +1,16 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/Home/Home"
+import Home from "./components/Home/Home";
 import Products from "./components/Products/Products";
 import Product from "./components/Product/Product";
 import About from "./components/About/About";
-import Cart from "./components/Cart/Cart"
+import Cart from "./components/Cart/Cart";
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -18,7 +19,7 @@ const App = () => {
         <Route path="about" element={<About />} />
         <Route path="cart" element={<Cart />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 };
 
