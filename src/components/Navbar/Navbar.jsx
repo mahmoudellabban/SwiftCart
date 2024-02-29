@@ -60,7 +60,7 @@ const Navbar = () => {
                   </Link>
                 </div>
                 <div className="Btns">
-                  <Link to={"auth"}>
+                  <Link to={"auth"} onClick={toggleMenu}>
                     <MdOutlineLogout />
                     Register
                   </Link>
