@@ -23,24 +23,24 @@
   border: 1px solid white;
   border-radius: 8px;
 }
-form {
+.wrapper form {
   display: flex;
   flex-direction: column;
 }
-label {
+.wrapper label {
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   gap: 5px;
 position: relative;
 }
-label .password-toggle {
+.wrapper label .password-toggle {
     position: absolute;
     right: 5%;
     bottom: 22%;
     cursor: pointer;
 }
-input {
+.wrapper input {
   padding: 8px;
   margin-bottom: 15px;
   font-size: 14px;
@@ -59,18 +59,18 @@ input {
   font-size: 18px;
   font-weight: 400;
 }
-p {
+.wrapper p {
   cursor: pointer;
   margin-top: 10px;
 }
-.error {
+.wrapper .error {
     color: rgb(255, 0, 0);
     cursor: default;
 }
-.error:hover {
+.wrapper .error:hover {
     text-decoration: none;
     color: rgb(255, 0, 0);
 }
-p:hover {
+.wrapper p:hover {
   text-decoration: underline;
 }
