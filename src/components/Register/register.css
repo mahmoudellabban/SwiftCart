@@ -48,7 +48,7 @@ input {
   border: none;
   font-family: "Poppins", sans-serif;
 }
-button {
+.wrapper button {
   padding: 10px;
   cursor: pointer;
   background-color: rgba(147,107,249,255);
