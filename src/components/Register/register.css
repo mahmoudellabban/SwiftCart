@@ -32,12 +32,22 @@ label {
   display: flex;
   flex-direction: column;
   gap: 5px;
+position: relative;
+}
+label .password-toggle {
+    position: absolute;
+    right: 5%;
+    bottom: 22%;
+    cursor: pointer;
 }
 input {
   padding: 8px;
   margin-bottom: 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  font-family: "Poppins", sans-serif;
 }
-
 button {
   padding: 10px;
   cursor: pointer;
@@ -52,6 +62,14 @@ button {
 p {
   cursor: pointer;
   margin-top: 10px;
+}
+.error {
+    color: rgb(255, 0, 0);
+    cursor: default;
+}
+.error:hover {
+    text-decoration: none;
+    color: rgb(255, 0, 0);
 }
 p:hover {
   text-decoration: underline;
