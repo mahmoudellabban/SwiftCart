@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/SwiftCart/static/css/main.e53914a2.css",
-    "main.js": "/SwiftCart/static/js/main.2508871f.js",
+    "main.js": "/SwiftCart/static/js/main.ac2ee311.js",
     "index.html": "/SwiftCart/index.html",
     "main.e53914a2.css.map": "/SwiftCart/static/css/main.e53914a2.css.map",
-    "main.2508871f.js.map": "/SwiftCart/static/js/main.2508871f.js.map"
+    "main.ac2ee311.js.map": "/SwiftCart/static/js/main.ac2ee311.js.map"
   },
   "entrypoints": [
     "static/css/main.e53914a2.css",
-    "static/js/main.2508871f.js"
+    "static/js/main.ac2ee311.js"
   ]
 }
