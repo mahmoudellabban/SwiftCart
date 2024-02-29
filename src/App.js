@@ -8,6 +8,7 @@ import Products from "./components/Products/Products";
 import Product from "./components/Product/Product";
 import About from "./components/About/About";
 import Cart from "./components/Cart/Cart";
+import Register from "./components/Register/Register";
 const App = () => {
   return (
     <Router>
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="products/:id" element={<Product />} />
         <Route path="about" element={<About />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="auth" element={<Register />} />
       </Routes>
     </Router>
   );

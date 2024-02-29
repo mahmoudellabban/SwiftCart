@@ -1,0 +1,58 @@
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+.register .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #676666;
+  border-radius: 10px;
+}
+.wrapper h2 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 400;
+}
+.register-container {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+input {
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgba(147,107,249,255);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+p {
+  cursor: pointer;
+  margin-top: 10px;
+}
+p:hover {
+  text-decoration: underline;
+}
